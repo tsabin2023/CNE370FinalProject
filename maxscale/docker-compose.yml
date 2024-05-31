@@ -6,12 +6,12 @@ services:
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'Y'
         volumes:
-            - ./sql/master:/docker-entrypoint-initdb.d
+            - ./sql/master1:/docker-entrypoint-initdb.d
         command: mysqld --log-bin=mariadb-bin --binlog-format=ROW --server-id=3000
         ports:
             - "4001:3306"
 
-   master2:
+    master2:
         image: mariadb:10.3
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'Y'
@@ -26,7 +26,6 @@ services:
         depends_on:
             - master1
             - master2
-            
         volumes:
             - ./maxscale.cnf.d:/etc/maxscale.cnf.d
         ports:
