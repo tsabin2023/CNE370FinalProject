@@ -1,4 +1,5 @@
 version: '2'
+
 services:
     master1:
         image: mariadb:10.3
