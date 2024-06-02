@@ -1,14 +1,27 @@
 [server1]
 type=server
-address=master1
+address=primary1
 port=3306
 protocol=MariaDBBackend
 
 [server2]
 type=server
-address=master2
+address=primary2
 port=3306
 protocol=MariaDBBackend
+
+[Sharded-Service]
+type=service
+router=schemarouter
+servers=server1,server2
+user=maxuser
+password=maxpwd
+
+[Sharded-Service-Listener]
+type=listener
+service=Sharded-Service
+protocol=MariaDBClient
+port=4000
 
 # Monitor for the servers
 # This will keep MaxScale aware of the state of the servers.
