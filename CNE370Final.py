@@ -1,60 +1,51 @@
 # Tyler Sabin
 # CNE 370 Spring Quarter 2024
-# 5/31/2024
+# 6/6/2024
+# source Christine Sutton
+# source https://rtc.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=9c492e9a-b3d1-46be-a657-b1870016c05a&autoplay=False&interactivity=all&start=0&showtitle=True&offerviewer=True&captions=False&showbrand=True&ltiCourseID=Canvas%5c2471314&isLTIEmbed=true&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyIsImtpZCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyJ9.eyJpc3MiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIiLCJhdWQiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIvcmVzb3VyY2VzIiwiZXhwIjoxNzE3NzA0NzQ5LCJuYmYiOjE3MTc3MDQ2ODksImNsaWVudF9pZCI6ImMzMTNkZWEzLWIyZjgtNDFlNi05NDQwLWFkNDEwMDYzYTY3YSIsInNjb3BlIjoidmlld0VtYmVkZGVkQ29udGVudCIsInN1YiI6IjFkNzcxZDVmLTk3NmUtNGQxNi1hODQ3LWIwMzYwMTg3MWViOSIsImF1dGhfdGltZSI6MTcxNzcwNDY4OSwiaWRwIjoiaWRzcnYiLCJyb2xlIjoidmlld2VyIiwic2Vzc2lvbl9pZCI6IjAyNWQxYTgwLTMxNmQtNGM2My05ZWUyLWIxODcwMTRjYmVmOCIsIm5hbWUiOiJUeWxlciBTYWJpbiIsImFtciI6WyJwYXNzd29yZCJdfQ.WYxgpGloOELWWtW1i_YdYv1R4VAyM1gNNU2_QYXRY-En8ODLQZH76vl_GBaPMBmmLWLyj7ND7RYLZKIZG-uRYsOrMS8OMVgh9zqxN_maZE_KdZpEzgdvBH5tM_NLv17EMzDKWHzGcj1lKrTtYmR1NitumC6Lehub1Bfda5-SwTNHZNT8T0mJGNat5-2W85o1IBLC-uRm5URhYoIET1uI7B0QdEL6wpl4XJ2MlQbUEzJTQiGSQ8pGuWZEXQt6VNbTs-rsbVQhVFSOMa4Slyukr1FvuDOeVrXfAJuGb9B6INpcSpvK30quVbKD0GBtpEiNGDTLvBwOiZRwAquOnE651A#access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyIsImtpZCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyJ9.eyJpc3MiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIiLCJhdWQiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIvcmVzb3VyY2VzIiwiZXhwIjoxNzE3NzA4Mjg5LCJuYmYiOjE3MTc3MDQ2ODksImNsaWVudF9pZCI6ImMzMTNkZWEzLWIyZjgtNDFlNi05NDQwLWFkNDEwMDYzYTY3YSIsInNjb3BlIjpbImFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidmlld0VtYmVkZGVkQ29udGVudCJdLCJzdWIiOiIxZDc3MWQ1Zi05NzZlLTRkMTYtYTg0Ny1iMDM2MDE4NzFlYjkiLCJhdXRoX3RpbWUiOjE3MTc3MDQ2ODksImlkcCI6Imlkc3J2Iiwicm9sZSI6InZpZXdlciIsInNlc3Npb25faWQiOiIwMjVkMWE4MC0zMTZkLTRjNjMtOWVlMi1iMTg3MDE0Y2JlZjgiLCJuYW1lIjoiVHlsZXIgU2FiaW4iLCJhbXIiOlsicGFzc3dvcmQiXX0.TpABFkJuLLlzFYbIt7KA-oWO5-3DfnytrX0mYPbQxFNMoh56OAGk3grddJtmdg9RJAYHbyd2sa9NOODON8ij7uQTdHe_hb2EVIzxAUlSpQX8M9CgqkrHaxp1NTTDYLKoTv0ZwO7_1pUONsFppy8BI6mO89ZbD2_OAi59518KpTypvlW-aaWNAVPDGbKeKrQVayI2Es-gacDl1jJJFZScP4wqShITZoGzUFel3eBv0faEiWbXAH9-8A8ccHhMuu-yrYdrTPGAankUTwTFaiFVoDPr6K_1zTffMhkhWBmMC8HyBFrF-2BeunUuIaTENA1n2VNUCcWVK9az2QNpxhqT_w
+# source Brian Huang
+# source Matt
+# code modified by Tyler Sabin
 
 import mysql.connector
 
+
 # db connection info
 
-config = {
-    'user': 'maxuser',
-    'password': 'maxpwd',
-    'host': 'localhost',  # Replace with MaxScale host
-    'port': 3306,         # Replace with MaxScale port
-    'database': 'your_database_name'  # Update with final database name
-}
+def connect_to_db():
+    con= mysql.connector.connect(
+        user = 'maxuser',
+        password = 'maxpwd',
+        host = '10.0.0.228',
+        port = '4000',
+    )
+    return con
 
-# connect to Db
 
-try:
-    cnx = mysql.connector.connect(**config)
-    cursor = cnx.cursor()
-
-# query largest zipcode in zipcodes_one
-
-    query = "SELECT MAX(zipcode) FROM zipcodes_one;"
+def execute_query(connection, query):
+    cursor = connection.cursor()
     cursor.execute(query)
-    print("Largest Zipcode in zipcodes_one:", cursor.fetchone()[0])
+    result = cursor.fetchall()  # Fetch all rows of a query result
+    cursor.close()
+    return result
 
-# query all zipcodes where state=KY (Kentucky)
 
-    query = "SELECT zipcode FROM zipcodes_one WHERE state='KY';"
-    cursor.execute(query)
-    print("\nZipcodes in Kentucky:")
-    for row in cursor.fetchall():
-        print(row[0])
+def main():
+    # Connect to the database
+    connection = connect_to_db()
 
-# query all zipcodes between 40000 and 41000
+    # Define your SQL query
+    query = "SELECT * FROM zipcodes_one.zipcodes_one"
 
-    query = "SELECT zipcode FROM zipcodes_one WHERE zipcode BETWEEN 40000 AND 41000;"
-    cursor.execute(query)
-    print("\nZipcodes between 40000 and 41000:")
-    for row in cursor.fetchall():
-        print(row[0])
+    # Execute the query
+    result = execute_query(connection, query)
 
-# query TotalWages column where state=PA (Pennsylvania)
+    # Process the result
+    for row in result:
+        print(row)
 
-    query = "SELECT TotalWages FROM your_table_name WHERE state='PA';"  # Replace your_table_name with final table name
-    cursor.execute(query)
-    print("\nTotalWages in Pennsylvania:")
-    for row in cursor.fetchall():
-        print(row[0])
+    # Close the database connection
+    connection.close()
 
-except mysql.connector.Error as err:
-    print("Error:", err)
-
-finally:
-    if 'cursor' in locals():
-        cursor.close()
-    if 'cnx' in locals():
-        cnx.close()
+if __name__ == "__main__":
+    main()
