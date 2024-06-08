@@ -35,8 +35,9 @@ def main():
     connection = connect_to_db()
 
     # Define your SQL queries
-    queries = [
+     queries = [
         "SELECT * FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;",
+        "SELECT * FROM zipcodes_one.zipcodes_one WHERE State = 'KY';",
         "SELECT * FROM zipcodes_two.zipcodes_two WHERE State = 'KY';",
         "SELECT * FROM zipcodes_one.zipcodes_one WHERE Zipcode BETWEEN 40000 AND 41000;",
         "SELECT * FROM zipcodes_two.zipcodes_two WHERE Zipcode BETWEEN 40000 AND 41000;",
