@@ -34,15 +34,18 @@ def main():
     # Connect to the database
     connection = connect_to_db()
 
-   # Query 1
-    query = "SELECT * FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1"
+    # Define your SQL queries
+    queries = [
+        "SELECT * FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;",
+        "SELECT * FROM zipcodes_two.zipcodes_two ORDER BY zipcode DESC LIMIT 1;"
+    ]
 
-    # Execute the query
-    result = execute_query(connection, query)
-
-    # Process the result
-    for row in result:
-        print(row)
+    # Execute each query and process the result
+    for query in queries:
+        result = execute_query(connection, query)
+        print(f"Results for query: {query}")
+        for row in result:
+            print(row)
 
     # Close the database connection
     connection.close()
