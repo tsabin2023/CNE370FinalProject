@@ -37,7 +37,7 @@ def main():
     # Define your SQL queries
     queries = [
         "SELECT * FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;",
-        "SELECT * FROM zipcodes_two.zipcodes_two ORDER BY zipcode DESC LIMIT 1;"
+        "SELECT * FROM zipcodes_two.zipcodes_two WHERE State = 'KY';"
     ]
 
     # Execute each query and process the result
