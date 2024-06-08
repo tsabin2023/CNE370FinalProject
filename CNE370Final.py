@@ -9,18 +9,16 @@
 
 import mysql.connector
 
-
 # db connection info
-
 def connect_to_db():
-    con= mysql.connector.connect(
-        user = 'maxuser',
-        password = 'maxpwd',
-        host = '10.0.0.228',
-        port = '4000',
+    return mysql.connector.connect(
+        user='maxuser',
+        password='maxpwd',
+        host='10.0.0.228',
+        port='4000',
     )
-    return con
 
+# defining queries
 
 def execute_query(connection, query):
     cursor = connection.cursor()
@@ -29,30 +27,66 @@ def execute_query(connection, query):
     cursor.close()
     return result
 
+def query_1(connection):
+    print("This is query 1.")
+    query = "SELECT * FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;"
+    result = execute_query(connection, query)
+    for row in result:
+        print(row)
 
-def main():
-    # Connect to the database
-    connection = connect_to_db()
-
-    # Define your SQL queries
+def query_2(connection):
+    print("This is query 2.")
     queries = [
-        "SELECT * FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;",
         "SELECT * FROM zipcodes_one.zipcodes_one WHERE State = 'KY';",
-        "SELECT * FROM zipcodes_two.zipcodes_two WHERE State = 'KY';",
+        "SELECT * FROM zipcodes_two.zipcodes_two WHERE State = 'KY';"
+    ]
+
+    for query in queries:
+        result = execute_query(connection, query)
+        for row in result:
+            print(row)
+
+def query_3(connection):
+    print("This is query 3.")
+    queries = [
         "SELECT * FROM zipcodes_one.zipcodes_one WHERE Zipcode BETWEEN 40000 AND 41000;",
-        "SELECT * FROM zipcodes_two.zipcodes_two WHERE Zipcode BETWEEN 40000 AND 41000;",
+        "SELECT * FROM zipcodes_two.zipcodes_two WHERE Zipcode BETWEEN 40000 AND 41000;"
+    ]
+
+    for query in queries:
+        result = execute_query(connection, query)
+        for row in result:
+            print(row)
+
+def query_4(connection):
+    print("This is query 4.")
+    queries = [
         "SELECT TotalWages FROM zipcodes_one.zipcodes_one WHERE State = 'PA';",
         "SELECT TotalWages FROM zipcodes_two.zipcodes_two WHERE State = 'PA';"
 
     ]
 
-
-    # Execute each query and process the result
     for query in queries:
         result = execute_query(connection, query)
-        print(f"Results for query: {query}")
         for row in result:
             print(row)
+
+
+# Define other query functions similarly
+
+connection = None  # Define connection as a global variable
+
+def main():
+    global connection  # Declare connection as global
+    # Connect to the database
+    connection = connect_to_db()
+
+    # Call query functions
+    query_1(connection)
+    query_2(connection)
+    query_3(connection)
+    query_4(connection)
+    # Call other query functions similarly
 
     # Close the database connection
     connection.close()
