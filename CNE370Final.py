@@ -12,6 +12,7 @@
 
 import mysql.connector
 
+
 # db connection to VM server info
 
 def connect_to_db():
@@ -22,10 +23,12 @@ def connect_to_db():
         port='4000',
     )
 
+
 # define row result function
 def row_result(result):
     for row in result:
         print(row)
+
 
 # defining execute  query
 
@@ -36,16 +39,21 @@ def execute_query(connection, query):
     cursor.close()
     return result
 
+
 def query_queries(connection, queries):
     for query in queries:
         result = execute_query(connection, query)
         row_result(result)
 
+
 # define query 1
 # the largest zipcode in zipcodes_one
 
 def query_1(connection):
+    print()
     print("The largest zipcode in zipcodes_one: ")
+    print()
+
     query = "SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;"
     result = execute_query(connection, query)
     # calls row_result with the result
@@ -56,7 +64,10 @@ def query_1(connection):
 # all zipcodes where state=KY (Kentucky)
 
 def query_2(connection):
+    print()
     print("All zipcodes where state=KY (Kentucky): ")
+    print()
+
     queries = [
         "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE State = 'KY';",
         "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE State = 'KY';"
@@ -69,7 +80,10 @@ def query_2(connection):
 # define query 3
 # all zipcodes between 40000 and 41000
 def query_3(connection):
+    print()
     print("All zipcodes between 40000 and 41000: ")
+    print()
+
     queries = [
         "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE Zipcode BETWEEN 40000 AND 41000;",
         "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE Zipcode BETWEEN 40000 AND 41000;"
@@ -82,7 +96,10 @@ def query_3(connection):
 # define query 4
 # The TotalWages column where state=PA (Pennsylvania)
 def query_4(connection):
+    print()
     print("The TotalWages column where state=PA (Pennsylvania): ")
+    print()
+
     queries = [
         "SELECT TotalWages FROM zipcodes_one.zipcodes_one WHERE State = 'PA';",
         "SELECT TotalWages FROM zipcodes_two.zipcodes_two WHERE State = 'PA';"
@@ -95,6 +112,7 @@ def query_4(connection):
 
 # define connection as a global variable
 connection = None
+
 
 # defining main function
 def main():
@@ -111,6 +129,6 @@ def main():
     # close the database connection
     connection.close()
 
+
 if __name__ == "__main__":
     main()
-    
