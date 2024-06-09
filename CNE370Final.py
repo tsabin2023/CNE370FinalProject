@@ -7,11 +7,16 @@
 # source https://rtc.hosted.panopto.com/Panopto/Pages/Embed.aspx?id=9c492e9a-b3d1-46be-a657-b1870016c05a&autoplay=False&interactivity=all&start=0&showtitle=True&offerviewer=True&captions=False&showbrand=True&ltiCourseID=Canvas%5c2471314&isLTIEmbed=true&access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyIsImtpZCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyJ9.eyJpc3MiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIiLCJhdWQiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIvcmVzb3VyY2VzIiwiZXhwIjoxNzE3NzA0NzQ5LCJuYmYiOjE3MTc3MDQ2ODksImNsaWVudF9pZCI6ImMzMTNkZWEzLWIyZjgtNDFlNi05NDQwLWFkNDEwMDYzYTY3YSIsInNjb3BlIjoidmlld0VtYmVkZGVkQ29udGVudCIsInN1YiI6IjFkNzcxZDVmLTk3NmUtNGQxNi1hODQ3LWIwMzYwMTg3MWViOSIsImF1dGhfdGltZSI6MTcxNzcwNDY4OSwiaWRwIjoiaWRzcnYiLCJyb2xlIjoidmlld2VyIiwic2Vzc2lvbl9pZCI6IjAyNWQxYTgwLTMxNmQtNGM2My05ZWUyLWIxODcwMTRjYmVmOCIsIm5hbWUiOiJUeWxlciBTYWJpbiIsImFtciI6WyJwYXNzd29yZCJdfQ.WYxgpGloOELWWtW1i_YdYv1R4VAyM1gNNU2_QYXRY-En8ODLQZH76vl_GBaPMBmmLWLyj7ND7RYLZKIZG-uRYsOrMS8OMVgh9zqxN_maZE_KdZpEzgdvBH5tM_NLv17EMzDKWHzGcj1lKrTtYmR1NitumC6Lehub1Bfda5-SwTNHZNT8T0mJGNat5-2W85o1IBLC-uRm5URhYoIET1uI7B0QdEL6wpl4XJ2MlQbUEzJTQiGSQ8pGuWZEXQt6VNbTs-rsbVQhVFSOMa4Slyukr1FvuDOeVrXfAJuGb9B6INpcSpvK30quVbKD0GBtpEiNGDTLvBwOiZRwAquOnE651A#access_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyIsImtpZCI6InhYTGt6ejUybGNhWGhZWjR2QVl1bXRYNmQxdyJ9.eyJpc3MiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIiLCJhdWQiOiJodHRwczovL3J0Yy5ob3N0ZWQucGFub3B0by5jb20vUGFub3B0by9vYXV0aDIvcmVzb3VyY2VzIiwiZXhwIjoxNzE3NzA4Mjg5LCJuYmYiOjE3MTc3MDQ2ODksImNsaWVudF9pZCI6ImMzMTNkZWEzLWIyZjgtNDFlNi05NDQwLWFkNDEwMDYzYTY3YSIsInNjb3BlIjpbImFwaSIsIm9mZmxpbmVfYWNjZXNzIiwidmlld0VtYmVkZGVkQ29udGVudCJdLCJzdWIiOiIxZDc3MWQ1Zi05NzZlLTRkMTYtYTg0Ny1iMDM2MDE4NzFlYjkiLCJhdXRoX3RpbWUiOjE3MTc3MDQ2ODksImlkcCI6Imlkc3J2Iiwicm9sZSI6InZpZXdlciIsInNlc3Npb25faWQiOiIwMjVkMWE4MC0zMTZkLTRjNjMtOWVlMi1iMTg3MDE0Y2JlZjgiLCJuYW1lIjoiVHlsZXIgU2FiaW4iLCJhbXIiOlsicGFzc3dvcmQiXX0.TpABFkJuLLlzFYbIt7KA-oWO5-3DfnytrX0mYPbQxFNMoh56OAGk3grddJtmdg9RJAYHbyd2sa9NOODON8ij7uQTdHe_hb2EVIzxAUlSpQX8M9CgqkrHaxp1NTTDYLKoTv0ZwO7_1pUONsFppy8BI6mO89ZbD2_OAi59518KpTypvlW-aaWNAVPDGbKeKrQVayI2Es-gacDl1jJJFZScP4wqShITZoGzUFel3eBv0faEiWbXAH9-8A8ccHhMuu-yrYdrTPGAankUTwTFaiFVoDPr6K_1zTffMhkhWBmMC8HyBFrF-2BeunUuIaTENA1n2VNUCcWVK9az2QNpxhqT_w
 # source Brian Huang
 # source Matt Bennett
+# source https://stackoverflow.com/questions/4842424/list-of-ansi-color-escape-sequences
+# source https://stackoverflow.com/questions/13076194/ascii-art-in-python
 # code modified by Tyler Sabin
 
 
 import mysql.connector
 
+# uses ANSI escape codes for bold text
+BOLD = '\033[1m'
+RESET = '\033[0m'
 
 # db connection to VM server info
 
@@ -23,15 +28,12 @@ def connect_to_db():
         port='4000',
     )
 
-
 # define row result function
 def row_result(result):
     for row in result:
         print(row)
 
-
-# defining execute  query
-
+# defining execute query
 def execute_query(connection, query):
     cursor = connection.cursor()
     cursor.execute(query)
@@ -39,84 +41,71 @@ def execute_query(connection, query):
     cursor.close()
     return result
 
+# function to print query header with ASCII art
+def print_header(header_text):
+    print("*" * (len(header_text) + 4))
+    print(f"* {BOLD}{header_text}{RESET} *")
+    print("*" * (len(header_text) + 4))
 
+# function to execute and print queries
 def query_queries(connection, queries):
     for query in queries:
         result = execute_query(connection, query)
         row_result(result)
 
-
 # define query 1
 # the largest zipcode in zipcodes_one
-
 def query_1(connection):
     print()
-    print("The largest zipcode in zipcodes_one: ")
+    print_header("The largest zipcode in zipcodes_one:")
     print()
-
     query = "SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;"
     result = execute_query(connection, query)
-    # calls row_result with the result
     row_result(result)
-
 
 # define query 2
 # all zipcodes where state=KY (Kentucky)
-
 def query_2(connection):
     print()
-    print("All zipcodes where state=KY (Kentucky): ")
+    print_header("All zipcodes where state=KY (Kentucky):")
     print()
-
     queries = [
         "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE State = 'KY';",
         "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE State = 'KY';"
     ]
-
-    # calls query_queries with the connection and queries
     query_queries(connection, queries)
-
 
 # define query 3
 # all zipcodes between 40000 and 41000
 def query_3(connection):
     print()
-    print("All zipcodes between 40000 and 41000: ")
+    print_header("All zipcodes between 40000 and 41000:")
     print()
-
     queries = [
         "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE Zipcode BETWEEN 40000 AND 41000;",
         "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE Zipcode BETWEEN 40000 AND 41000;"
     ]
-
-    # calls query_queries with the connection and queries
     query_queries(connection, queries)
 
-
 # define query 4
-# The TotalWages column where state=PA (Pennsylvania)
+# the TotalWages column where state=PA (Pennsylvania)
 def query_4(connection):
     print()
-    print("The TotalWages column where state=PA (Pennsylvania): ")
+    print_header("The TotalWages column where state=PA (Pennsylvania):")
     print()
-
     queries = [
         "SELECT TotalWages FROM zipcodes_one.zipcodes_one WHERE State = 'PA';",
         "SELECT TotalWages FROM zipcodes_two.zipcodes_two WHERE State = 'PA';"
-
     ]
-
-    # calls query_queries with the connection and queries
     query_queries(connection, queries)
-
 
 # define connection as a global variable
 connection = None
 
-
 # defining main function
 def main():
-    global connection  # declare connection as global
+    # declare connection as global
+    global connection
     # connect to the database
     connection = connect_to_db()
 
@@ -128,7 +117,6 @@ def main():
 
     # close the database connection
     connection.close()
-
 
 if __name__ == "__main__":
     main()
