@@ -31,6 +31,7 @@ def execute_query(connection, query):
     cursor.close()
     return result
 
+# define query 1
 # The largest zipcode in zipcodes_one
 
 def query_1(connection):
@@ -40,11 +41,14 @@ def query_1(connection):
     for row in result:
         print(row)
 
+# define query 2
+# All zipcodes where state=KY (Kentucky)
+
 def query_2(connection):
-    print("This is query 2.")
+    print("All zipcodes where state=KY (Kentucky) ")
     queries = [
-        "SELECT * FROM zipcodes_one.zipcodes_one WHERE State = 'KY';",
-        "SELECT * FROM zipcodes_two.zipcodes_two WHERE State = 'KY';"
+        "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE State = 'KY';",
+        "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE State = 'KY';"
     ]
 
     for query in queries:
@@ -78,23 +82,24 @@ def query_4(connection):
             print(row)
 
 
-# Define other query functions similarly
+# define connection as a global variable
+connection = None
 
-connection = None  # Define connection as a global variable
-
+# defining main function
 def main():
-    global connection  # Declare connection as global
-    # Connect to the database
+    global connection  # declare connection as global
+    # connect to the database
     connection = connect_to_db()
 
-    # Call query functions
-    query_1(connection)
-    #query_2(connection)
+    # call query functions
+    #query_1(connection)
+    query_2(connection)
     #query_3(connection)
     #query_4(connection)
 
-    # Close the database connection
+    # close the database connection
     connection.close()
 
 if __name__ == "__main__":
     main()
+    
