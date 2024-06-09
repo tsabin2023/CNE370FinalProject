@@ -36,6 +36,11 @@ def execute_query(connection, query):
     cursor.close()
     return result
 
+def query_queries(connection, queries):
+    for query in queries:
+        result = execute_query(connection, query)
+        row_result(result)
+
 # define query 1
 # the largest zipcode in zipcodes_one
 
@@ -43,6 +48,7 @@ def query_1(connection):
     print("The largest zipcode in zipcodes_one: ")
     query = "SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;"
     result = execute_query(connection, query)
+    # calls row_result with the result
     row_result(result)
 
 
@@ -56,9 +62,8 @@ def query_2(connection):
         "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE State = 'KY';"
     ]
 
-    for query in queries:
-        result = execute_query(connection, query)
-        row_result(result)
+    # calls query_queries with the connection and queries
+    query_queries(connection, queries)
 
 
 # define query 3
@@ -70,9 +75,8 @@ def query_3(connection):
         "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE Zipcode BETWEEN 40000 AND 41000;"
     ]
 
-    for query in queries:
-        result = execute_query(connection, query)
-        row_result(result)
+    # calls query_queries with the connection and queries
+    query_queries(connection, queries)
 
 
 # define query 4
@@ -85,9 +89,8 @@ def query_4(connection):
 
     ]
 
-    for query in queries:
-        result = execute_query(connection, query)
-        row_result(result)
+    # calls query_queries with the connection and queries
+    query_queries(connection, queries)
 
 
 # define connection as a global variable
@@ -110,4 +113,4 @@ def main():
 
 if __name__ == "__main__":
     main()
-
+    
