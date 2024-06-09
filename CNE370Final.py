@@ -12,7 +12,8 @@
 
 import mysql.connector
 
-# db connection info
+# db connection to VM server info
+
 def connect_to_db():
     return mysql.connector.connect(
         user='maxuser',
@@ -21,18 +22,20 @@ def connect_to_db():
         port='4000',
     )
 
-# defining queries
+# defining execute  query
 
 def execute_query(connection, query):
     cursor = connection.cursor()
     cursor.execute(query)
-    result = cursor.fetchall()  # Fetch all rows of a query result
+    result = cursor.fetchall()  # fetches all rows of a query and returns result
     cursor.close()
     return result
 
+# The largest zipcode in zipcodes_one
+
 def query_1(connection):
-    print("This is query 1.")
-    query = "SELECT * FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;"
+    print("The largest zipcode in zipcodes_one.")
+    query = "SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;"
     result = execute_query(connection, query)
     for row in result:
         print(row)
@@ -86,10 +89,9 @@ def main():
 
     # Call query functions
     query_1(connection)
-    query_2(connection)
-    query_3(connection)
-    query_4(connection)
-    # Call other query functions similarly
+    #query_2(connection)
+    #query_3(connection)
+    #query_4(connection)
 
     # Close the database connection
     connection.close()
