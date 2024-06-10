@@ -1,6 +1,6 @@
 # Tyler Sabin
 # sabint@live.com
-# 6/8/2024
+# 6/10/2024
 # CNE 370 Spring Quarter 2024
 # This code queries shard architecture on a VM server and returns results to terminal
 # source Christine Sutton
@@ -57,7 +57,7 @@ def query_queries(connection, queries):
 # the largest zipcode in zipcodes_one
 def query_1(connection):
     print()
-    print_header("The largest zipcode in zipcodes_one:")
+    print_header("1. The largest zipcode in zipcodes_one:")
     print()
     query = "SELECT Zipcode FROM zipcodes_one.zipcodes_one ORDER BY zipcode DESC LIMIT 1;"
     result = execute_query(connection, query)
@@ -67,7 +67,7 @@ def query_1(connection):
 # all zipcodes where state=KY (Kentucky)
 def query_2(connection):
     print()
-    print_header("All zipcodes where state=KY (Kentucky):")
+    print_header("2. All zipcodes where state=KY (Kentucky):")
     print()
     queries = [
         "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE State = 'KY';",
@@ -79,7 +79,7 @@ def query_2(connection):
 # all zipcodes between 40000 and 41000
 def query_3(connection):
     print()
-    print_header("All zipcodes between 40000 and 41000:")
+    print_header("3. All zipcodes between 40000 and 41000:")
     print()
     queries = [
         "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE Zipcode BETWEEN 40000 AND 41000;",
@@ -91,7 +91,7 @@ def query_3(connection):
 # the TotalWages column where state=PA (Pennsylvania)
 def query_4(connection):
     print()
-    print_header("The TotalWages column where state=PA (Pennsylvania):")
+    print_header("4. The TotalWages column where state=PA (Pennsylvania):")
     print()
     queries = [
         "SELECT TotalWages FROM zipcodes_one.zipcodes_one WHERE State = 'PA';",
