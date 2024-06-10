@@ -24,7 +24,7 @@ def connect_to_db():
     return mysql.connector.connect(
         user='maxuser',
         password='maxpwd',
-        host='10.0.0.228',
+        host='10.0.0.228',  # replace '10.0.0.28'  with your server's ip address, eg. 'ipaddress'
         port='4000',
     )
 
