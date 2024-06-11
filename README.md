@@ -46,6 +46,49 @@ docker-compose up -d
 ```
  Note this may take some time, be patient.
 
+check to see if the containers are up and running
+```
+docker ps -a
+```
+
+Step 3.
+
+On you servers terminal, type
+```
+ifconfig
+```
+Write down the ipaddress of the server
+
+To run the python file and see the query results, on you machine, not the server in the previous steps,
+
+Go into you IDE that runs Python 3, this will very from user to user.
+
+Option 1 Is to use the vcs on you IDE and find the clone the repo https://github.com/tsabin2023/CNE370FinalProject
+this will differ depending on what IDE you have installed.
+
+Option 2. Is to try and clone from the IDE terminal, this may vary depending on the IDE, but try
+
+```
+git clone https://github.com/tsabin2023/CNE370FinalProject
+```
+Press enter
+
+if you have issues make sure Git is installed on your machine
+
+```
+sudo apt-get install git
+```
+
+Option 3. Create a new file (you may have to create a new project first) in your IDE and name it CNE370Final.py
+Then copy and paste the contents of CNE370Final.py from the repo https://github.com/tsabin2023/CNE370FinalProject
+and paste the contents into the python file you just made.
+
+Step 4. In the python file CNE370Final.py look for the line with the # replace '10.0.0.28'  with your server's ip address, eg. 'ipaddress' and put in the ipadress from the server that you wrote down.
+
+Run the python file, how this is down may vary depending on the IDE you are using. 
+
+You will see the output in the terminal.
+
 After MaxScale and the servers have started (takes a few minutes), you can find
 the readwritesplit router on port 4006 and the readconnroute on port 4008. The
 user `maxuser` with the password `maxpwd` can be used to test the cluster.
