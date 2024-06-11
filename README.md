@@ -1,13 +1,30 @@
-# MariaDB MaxScale Docker image
+# Database Shard Github
 
-This Docker image runs the latest 2.4 version of MariaDB MaxScale.
+This Docker image runs the 2.4 version of MariaDB MaxScale image: mariadb:10.3, modified into shard architecture with two sharded database.
 
 -	[Travis CI:  
-	![build status badge](https://img.shields.io/travis/mariadb-corporation/maxscale-docker/master.svg)](https://travis-ci.org/mariadb-corporation/maxscale-docker/branches)
+	![build status badge](https://img.shields.io/travis/mariadb-corporation/maxscale-docker/master.svg)](https://travis-ci.org/mariadb-corporation/maxscale-docker/
+branches)
+
+- Zak Rubin
+  - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
 
 ## Running
-[The MaxScale docker-compose setup](./docker-compose.yml) contains MaxScale
-configured with a three node master-slave cluster. To start it, run the
+note the following assumptions are made, you have a machine with a python 3 IDE installed, you know how to pick your IDE python 3 interpreter and install packages in its enviroment, and you have a server with Ubuntu 22.04, know how to access its terminal, and already have Docker and Docker-Compose and installed. https://docs.docker.com/engine/install/ubuntu/
+https://docs.docker.com/compose/install/
+
+from your server terminal type/copy and paste
+
+```
+get clone https://github.com/tsabin2023/CNE370FinalProject
+```
+Press enter
+
+[The MaxScale docker-compose setup](./docker-compose.yml) 
+
+~/test1/CNE370FinalProject/maxscale
+contains MaxScale
+configured with a three node sharded databse. To start it, run the
 following commands in this directory.
 
 ```
@@ -89,9 +106,9 @@ Once complete, to remove the cluster and maxscale containers:
 docker-compose down -v
 ```
 
-# Documentation
+## Documentation
 
-## Sources
+### Sources
 - Zak Rubin
   - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
 - Christine Sutton
