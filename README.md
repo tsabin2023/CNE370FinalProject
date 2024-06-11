@@ -13,16 +13,29 @@ branches)
 note the following assumptions are made, you have a machine with a python 3 IDE installed, you know how to pick your IDE python 3 interpreter and install packages in its enviroment, and you have a server with Ubuntu 22.04, know how to access its terminal, and already have Docker and Docker-Compose and installed. https://docs.docker.com/engine/install/ubuntu/
 https://docs.docker.com/compose/install/
 
+Step 1.
 from your server terminal type/copy and paste
 
 ```
-get clone https://github.com/tsabin2023/CNE370FinalProject
+git clone https://github.com/tsabin2023/CNE370FinalProject
 ```
 Press enter
 
+if you have issues make sure Git is installed on your machine
+
+```
+sudo apt-get install git
+```
+Press enter
+
+Step 2.
+
 [The MaxScale docker-compose setup](./docker-compose.yml) 
 
-~/test1/CNE370FinalProject/maxscale
+```
+cd ./CNE370FinalProject/maxscale
+```
+
 contains MaxScale
 configured with a three node sharded databse. To start it, run the
 following commands in this directory.
@@ -31,6 +44,7 @@ following commands in this directory.
 docker-compose build
 docker-compose up -d
 ```
+ Note this may take some time, be patient.
 
 After MaxScale and the servers have started (takes a few minutes), you can find
 the readwritesplit router on port 4006 and the readconnroute on port 4008. The
