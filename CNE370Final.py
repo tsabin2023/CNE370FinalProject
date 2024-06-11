@@ -1,6 +1,6 @@
 # Tyler Sabin
 # sabint@live.com
-# 6/10/2024
+# 6/11/2024
 # CNE 370 Spring Quarter 2024
 # This code queries shard architecture on a VM server and returns results to terminal
 # source Christine Sutton
@@ -82,8 +82,8 @@ def query_3(connection):
     print_header("3. All zipcodes between 40000 and 41000:")
     print()
     queries = [
-        "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE Zipcode BETWEEN 40000 AND 41000;",
-        "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE Zipcode BETWEEN 40000 AND 41000;"
+        "SELECT Zipcode FROM zipcodes_one.zipcodes_one WHERE Zipcode > 40000 AND Zipcode < 41000;",
+        "SELECT Zipcode FROM zipcodes_two.zipcodes_two WHERE Zipcode > 40000 AND Zipcode < 41000;"
     ]
     query_queries(connection, queries)
 
