@@ -51,6 +51,15 @@ check to see if the containers are up and running
 docker ps -a
 ```
 
+Here's an example of what it should look similar to
+
+```
+CONTAINER ID   IMAGE                     COMMAND                  CREATED          STATUS          PORTS                                                                                                                                                                                  NAMES
+3ab460c0054d   mariadb/maxscale:latest   "/usr/bin/tini -- do…"   11 minutes ago   Up 10 minutes   0.0.0.0:4000->4000/tcp, :::4000->4000/tcp, 0.0.0.0:4006->4006/tcp, :::4006->4006/tcp, 0.0.0.0:4008->4008/tcp, :::4008->4008/tcp, 3306/tcp, 0.0.0.0:8989->8989/tcp, :::8989->8989/tcp   maxscale_maxscale_1
+caec9b432531   mariadb:10.3              "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   0.0.0.0:4002->3306/tcp, :::4002->3306/tcp                                                                                                                                              maxscale_primary2_1
+9e6537d04d66   mariadb:10.3              "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   0.0.0.0:4001->3306/tcp, :::4001->3306/tcp                                                                                                                                              maxscale_primary1_1
+```
+
 Step 3.
 
 On you servers terminal, type
