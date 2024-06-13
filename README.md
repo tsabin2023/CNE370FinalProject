@@ -92,9 +92,12 @@ Option 3. Create a new file (you may have to create a new project first) in your
 Then copy and paste the contents of CNE370Final.py from the repo https://github.com/tsabin2023/CNE370FinalProject
 and paste the contents into the python file you just made.
 
+In your IDE configure your Python Interpreter to be 3.11, how to do this will vary based on the IDE.
+Also, in your IDE's virtual enviroment for the python file, install package mysql-connector. How to do this will vary based on IDE and you may need to install additional packages like PyMySQL, mysql-connector-python-rf, etc. 
+
 Step 4. In the python file CNE370Final.py look for the line with the # replace '10.0.0.28'  with your server's ip address, eg. 'ipaddress' and put in the ipadress from the server that you wrote down.
 
-Run the python file, how this is down may vary depending on the IDE you are using. 
+Run the python file, how this is done may vary depending on the IDE you are using. 
 
 You will see the output in the terminal and it will look like this. 
 
