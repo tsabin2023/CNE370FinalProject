@@ -38,15 +38,33 @@ Press enter
 
 origional vs. current
 
+The original file that this project is forked from, contains MaxScale configured with a three node master-slave cluster. It has now been modified to use a proxy and two sharded databases to be queried. 
+
 how I modified the file configuration
 
 Hi level view with some key code. What you canged and why
 
 The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture. 
 Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2 so they databases have information to query.
+Next I went into the docker-compose.yml in the maxscale folder and modified its contents to be sharded architucture. This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 I had already put in the folders.  
+This also meant I had to change the the depends on to the same names as the services have and setting ip a shard listener on port 4000, that way I have a proxy to run quearies through without querying the databases directly. 
 
+```
+ maxscale:
+        image: mariadb/maxscale:latest
+        depends_on:
+            - primary1
+            - primary2
+        volumes:
+            - ./maxscale.cnf.d:/etc/maxscale.cnf.d
+        ports:
+            - "4000:4000"  # shard listener
+            - "4006:4006"  # readwrite port
+            - "4008:4008"  # readonly port
+            - "8989:8989"  # REST API port
+```
 
-I added a python file for testing the shard architecture, see testing section of this read me. 
+Furthermore, I added a python file in the projects folder for testing the shard architecture, see testing section of this read me. 
 
 Step 2.
 
