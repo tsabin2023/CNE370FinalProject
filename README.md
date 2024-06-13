@@ -34,6 +34,20 @@ sudo apt-get install git
 ```
 Press enter
 
+## Configuration
+
+origional vs. current
+
+how I modified the file configuration
+
+Hi level view with some key code. What you canged and why
+
+The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture. 
+Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2 so they databases have information to query.
+
+
+I added a python file for testing the shard architecture, see testing section of this read me. 
+
 Step 2.
 
 [The MaxScale docker-compose setup](./docker-compose.yml) 
@@ -67,15 +81,15 @@ caec9b432531   mariadb:10.3              "docker-entrypoint.s…"   11 minutes a
 ```
 
 
-## Configuration
 
-origional vs. current
-
-how I modified the file configuration
-
-Hi level view with some key code. What you canged and why
 
 ## Maxscale Docker-Compose Setup
+
+Run maxctrl in the container to see the status of the cluster:
+
+```
+$ docker-compose exec maxscale maxctrl list servers
+```
 
 
 ## Testing
@@ -3022,3 +3036,5 @@ docker-compose down -v
 - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
 - [GitHub Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 - [https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md](https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md)
+https://rtc.instructure.com/courses/2471314/files/244931514?module_item_id=82584603
+https://rtc.instructure.com/courses/2471314/files/244931517?module_item_id=82584604
