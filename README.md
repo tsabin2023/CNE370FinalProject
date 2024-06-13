@@ -1,4 +1,10 @@
-# Database Shard Github
+Introduction (What does this do?)
+
+
+
+Follows good documentation principles: Headers, Sections, Links, Code blocks, etc. (2 Points)
+
+# Introduction to Database Shard Github
 
 This Docker image runs the 2.4 version of MariaDB MaxScale image: mariadb:10.3, modified into shard architecture with two sharded database.
 
@@ -59,6 +65,20 @@ CONTAINER ID   IMAGE                     COMMAND                  CREATED       
 caec9b432531   mariadb:10.3              "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   0.0.0.0:4002->3306/tcp, :::4002->3306/tcp                                                                                                                                              maxscale_primary2_1
 9e6537d04d66   mariadb:10.3              "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   0.0.0.0:4001->3306/tcp, :::4001->3306/tcp                                                                                                                                              maxscale_primary1_1
 ```
+
+
+## Configuration
+
+origional vs. current
+
+how I modified the file configuration
+
+Hi level view with some key code. What you canged and why
+
+## Maxscale Docker-Compose Setup
+
+
+## Testing
 
 Step 3.
 
@@ -3001,3 +3021,4 @@ docker-compose down -v
 - [MariaDB MaxScale 2.5 Simple Sharding with Two Servers](https://mariadb.com/kb/en/mariadb-maxscale-25-simple-sharding-with-two-servers/)
 - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
 - [GitHub Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md](https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md)
