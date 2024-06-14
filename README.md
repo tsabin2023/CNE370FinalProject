@@ -22,6 +22,8 @@ branches)
 ## Running
 note the following assumptions are made, you have a machine with a python 3 IDE installed, you know how to pick your IDE python 3 interpreter and install packages in its enviroment, and you have a server with Ubuntu 22.04, know how to access its terminal, and already have Docker and Docker-Compose and installed. https://docs.docker.com/engine/install/ubuntu/
 https://docs.docker.com/compose/install/
+https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
+https://hub.docker.com/_/mariadb
 
 Step 1.
 from your server terminal type/copy and paste
@@ -38,6 +40,18 @@ sudo apt-get install git
 ```
 Press enter
 
+Step 2.
+
+[The MaxScale docker-compose setup](./docker-compose.yml) 
+
+```
+cd ./CNE370FinalProject/maxscale
+```
+
+```
+docker-compose build
+docker-compose up -d
+```
 Unless I'm mistaken (and I very well might be) installing docker, docker-compose, and mariaDB is necessary before you can run the repo. I'm pretty sure getting these up and running is going to fill part of your Configuration section and that most of the stuff in step 2 of your Configuration should be in the Docker-Compose Setup section.
 
 ## Configuration
@@ -3085,3 +3099,6 @@ docker-compose down -v
 - [https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md](https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md)
 https://rtc.instructure.com/courses/2471314/files/244931514?module_item_id=82584603
 https://rtc.instructure.com/courses/2471314/files/244931517?module_item_id=82584604
+https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
+https://hub.docker.com/_/mariadb
+
