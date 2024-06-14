@@ -1,16 +1,16 @@
 ## Table of Contents
 
-[Introduction]()
+[Introduction](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#introduction)
 
-[Running]()
+[Running](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#running)
 
-[Maxscale Docker-Compose Setup]()
+[Maxscale Docker-Compose Setup](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#maxscale-docker-compose-setup)
 
-[Configuration]()
+[Configuration](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#configuration)
 
-[Testing Sharded Database Configuration with Python Script]()
+[Testing Sharded Database Configuration with Python Script](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#testing-sharded-database-configuration-with-python-script)
 
-[Documentation]()
+[Documentation](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#documentation)
 
 ## Introduction
 
@@ -3100,4 +3100,4 @@ https://rtc.instructure.com/courses/2471314/files/244931517?module_item_id=82584
 https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
 https://hub.docker.com/_/mariadb
 
-[⬆️Back to Table of Contents]()
+[⬆️Back to Table of Contents](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#table-of-contents)
