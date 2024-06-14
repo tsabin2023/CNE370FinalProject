@@ -1,69 +1,66 @@
-Introduction (What does this do?)
+## Table of Contents
 
-I would add a little more to the introduction saying what the repo does in layman's terms. It doesn't have to be much, 2-3 sentences explaining what you've set up. It also looks like you've left part of the rubric in there which could be removed.
+[Introduction]()
 
+[Running]()
 
-Follows good documentation principles: Headers, Sections, Links, Code blocks, etc. (2 Points)
+[Maxscale Docker-Compose Setup]()
 
-# Introduction to Database Shard Github
+[Configuration]()
 
-This Docker image runs the 2.4 version of MariaDB MaxScale image: mariadb:10.3, modified into shard architecture with two sharded database.
+[Testing Sharded Database Configuration with Python Script]()
 
--	[Travis CI:  
-	![build status badge](https://img.shields.io/travis/mariadb-corporation/maxscale-docker/master.svg)](https://travis-ci.org/mariadb-corporation/maxscale-docker/
-branches)
+[Documentation]()
 
-- Zak Rubin
-  - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
-    
- 
-  Unless I'm mistaken (and I very well might be) installing docker, docker-compose, and mariaDB is necessary before you can run the repo. I'm pretty sure getting these up and running is going to fill part of your Configuration section and that most of the stuff in step 2 of your Configuration should be in the Docker-Compose Setup section.
+## Introduction
+
 
 ## Running
-note the following assumptions are made, have you have a machine with a python 3 IDE installed, you know how to pick your IDE python 3 interpreter and install packages in its enviroment, and you have a server with Ubuntu 22.04, know how to access its terminal, and already have Docker and Docker-Compose and installed. https://docs.docker.com/engine/install/ubuntu/
-https://docs.docker.com/compose/install/
-https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
-https://hub.docker.com/_/mariadb
+Prereqs:
 
-Step 1.
-from your server terminal type/copy and paste
+on the host machine:
+- Python 3 IDE
+	- packages: mysql-connector
+ 
+on the server machine:
+- Ubuntu 22.04 server
+- [Docker](https://docs.docker.com/engine/install/ubuntu/), [Docker-Compose](https://docs.docker.com/compose/install/)
 
-```
-git clone https://github.com/tsabin2023/CNE370FinalProject
-```
-Press enter
+## Maxscale Docker-Compose Setup
+**The following steps will be performed on the server**
 
-if you have issues make sure Git is installed on your machine
-
+If you don't have git, install git through the following command otherwise move onto the next step
 ```
 sudo apt-get install git
 ```
-Press enter
 
-Step 2.
+Clone the project directory onto your server with the following command
+```
+git clone https://github.com/tsabin2023/CNE370FinalProject
+```
 
-[The MaxScale docker-compose setup](./docker-compose.yml) 
-
+Change into maxscale directory within the project repo directory
 ```
 cd ./CNE370FinalProject/maxscale
 ```
 
+Start the Docker containers with the following command, this will bring up our proxy and database servers
 ```
 docker-compose build
 docker-compose up -d
 ```
-Unless I'm mistaken (and I very well might be) installing docker, docker-compose, and mariaDB is necessary before you can run the repo. I'm pretty sure getting these up and running is going to fill part of your Configuration section and that most of the stuff in step 2 of your Configuration should be in the Docker-Compose Setup section.
 
-After MaxScale and the servers have started (takes a few minutes), you can find the readwritesplit router on port 4006 and the readconnroute on port 4008. The user maxuser with the password maxpwd can be used to for testing.
+#### Optional Testing Section
+***
+After the MaxScale proxy and the database servers have started (takes a few minutes), we can test our databases manually by connecting to the proxy and performing queies/actions which uses the read (4008) write (4006) ports with the account **maxuser** as the username and **maxpwd** as the password
 
+Enter the following command in the current directory to begin testing the databases, it will connect to the proxy, allowing you to execute SQL queries
 ```
 mariadb -umaxuser -pmaxpwd -h 127.0.0.1 -P 4000
 ```
-Below is an example of the output of the command. 
 
+Below is an example of the output of the command
 ```
-vboxuser@UbuntuW4CNE370:~/test1/CNE370FinalProject$ mariadb -umaxuser -pmaxpwd -h 127.0.0.1 -P 4000
-
 Welcome to the MariaDB monitor.  Commands end with ; or \g.
 
 Your MariaDB connection id is 164
@@ -75,39 +72,57 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 MariaDB [(none)]> 
 ```
 
-If you do not want to do the Initial Testing sub-section below, tpye. 
+Close the connection with the following command
 ```
 exit
 ```
-and press enter if you are not automatically exited.
+***
 
-
-### Initial Testing
-
-Now that the sharded database is up and running, you can run sql queries.
-Note, read the sql shard1.sql and shard2.sql to see table and column names for quieries and know how to write sql queries for this sub-section.
-
-After you are done testing queries, you can exit the sharded database by typing
+Checking the status of the databases
 ```
-exit
+docker-compose exec maxscale maxctrl list servers
 ```
-and press enter if you are not automatically exited.
 
+Below is an example of the output of the command
+```
+┌─────────┬──────────┬──────┬─────────────┬─────────────────┬──────┬─────────────────┐
+
+│ Server  │ Address  │ Port │ Connections │ State           │ GTID │ Monitor         │
+
+├─────────┼──────────┼──────┼─────────────┼─────────────────┼──────┼─────────────────┤
+
+│ server1 │ primary1 │ 3306 │ 0           │ Master, Running │      │ MariaDB-Monitor │
+
+├─────────┼──────────┼──────┼─────────────┼─────────────────┼──────┼─────────────────┤
+
+│ server2 │ primary2 │ 3306 │ 0           │ Running         │      │ MariaDB-Monitor │
+
+└─────────┴──────────┴──────┴─────────────┴─────────────────┴──────┴─────────────────┘
+```
+
+Remove the Docker containers with the following command
+```
+docker-compose down -v
+```
 
 ## Configuration
-
 origional vs. current
 
-The original file that this project is forked from, contains MaxScale configured with a three node master-slave cluster. It has now been modified to use a proxy and two sharded databases to be queried. 
+The original file that this project is forked from, contains MaxScale configured with a three node master-slave cluster. It has now been modified to use a proxy with sharded configuration between two databases.
 
 how I modified the file configuration
 
 Hi level view with some key code. What you canged and why
 
-The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture. 
-Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2 so they databases have information to query.
-Next I went into the docker-compose.yml in the maxscale folder and modified its contents to be sharded architucture. This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 I had already put in the folders.  
-This also meant I had to change the depends_on to the same names as the services have and setting ip a shard listener on port 4000, that way I have a proxy to run quearies through without querying the databases directly. Note shard archture needs a listening port for the proxy and port 4000 is commonly used. 
+The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture.
+
+(NOTES - configuring volumes of database container - persist data)
+Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2 so the databases have information to query.
+
+Next I went into the docker-compose.yml in the maxscale folder and modified its contents to follow a sharded architucture. 
+This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 I had already put in the folders.
+
+This also meant I had to change the depends_on to the same names as the services have and setting ip a shard listener on port 4000, that way I have a proxy to run quearies through without querying the databases directly. Note shard archture needs a listening port for the proxy and the default port is 4000. 
 
 ```
  maxscale:
@@ -125,9 +140,8 @@ This also meant I had to change the depends_on to the same names as the services
 ```
 
 There needed to be changes to the example.cnf in the sub-folder maxscale.cnf.d which is in the maxscale folder also occured.
-Names of master was changed to primary1 and slave1 to primary 2, slave2 was no longer need, so I removed it. 
+Names of master was changed to primary1 and slave1 to primary 2, slave2 was no longer need, so I removed it.
 Next and very crucial step was to create the shard architectue by adding a Sharded Service and a Sharded Service Listener and set that to port 4000 to proxy queries to the sharded databases, see code below. 
-
 
 ```
 [Sharded-Service]
@@ -143,97 +157,49 @@ service=Sharded-Service
 protocol=MariaDBClient
 port=4000
 ```
+
 After that, I got rid of server 3 on the MariaDB-Monitor, as it was no-longer needed.
 This process was repreated for the Read-Only-Service and Read-Write-Service.
 No other changes to this file were required.
 
-Furthermore, I added a python file in the projects folder for testing the shard architecture using sql queries, see testing section of this read me. 
+Furthermore, I added a python file in the projects folder for testing the shard architecture using sql queries. 
 
-Step 2.
+## Testing Sharded Database Configuration with Python Script
+**The following steps will be performed on the server**
 
-[The MaxScale docker-compose setup](./docker-compose.yml) 
+Getting the ip address of the server
 
-```
-cd ./CNE370FinalProject/maxscale
-```
-
-contains MaxScale
-configured with a three node sharded databse. To start it, run the
-following commands in this directory.
-
-```
-docker-compose build
-docker-compose up -d
-```
- Note this may take some time, be patient.
-
-check to see if the containers are up and running
-```
-docker ps -a
-```
-
-Here's an example of what it should look similar to
-
-```
-CONTAINER ID   IMAGE                     COMMAND                  CREATED          STATUS          PORTS                                                                                                                                                                                  NAMES
-3ab460c0054d   mariadb/maxscale:latest   "/usr/bin/tini -- do…"   11 minutes ago   Up 10 minutes   0.0.0.0:4000->4000/tcp, :::4000->4000/tcp, 0.0.0.0:4006->4006/tcp, :::4006->4006/tcp, 0.0.0.0:4008->4008/tcp, :::4008->4008/tcp, 3306/tcp, 0.0.0.0:8989->8989/tcp, :::8989->8989/tcp   maxscale_maxscale_1
-caec9b432531   mariadb:10.3              "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   0.0.0.0:4002->3306/tcp, :::4002->3306/tcp                                                                                                                                              maxscale_primary2_1
-9e6537d04d66   mariadb:10.3              "docker-entrypoint.s…"   11 minutes ago   Up 11 minutes   0.0.0.0:4001->3306/tcp, :::4001->3306/tcp                                                                                                                                              maxscale_primary1_1
-```
-
-
-## Maxscale Docker-Compose Setup
-
-Run maxctrl in the container to see the status of the cluster:
-
-```
-$ docker-compose exec maxscale maxctrl list servers
-```
-
-
-## Sharded Database Testing with queries
-
-Step 3.
-
-On you servers terminal, type
+Open the terminal and enter the following command to display the ip address
 ```
 ifconfig
 ```
-Write down the ipaddress of the server
 
-To run the python file and see the query results, on you machine, not the server in the previous steps,
+Write down the ip address of the server
 
-Go into you IDE that runs Python 3, this will very from user to user.
+**The following steps will be performed on the host machine**
 
-Option 1 Is to use the vcs on you IDE and find the clone the repo https://github.com/tsabin2023/CNE370FinalProject
+To run the python file open your IDE that runs Python 3, this will vary from user to user
+
+Option 1 Use the Version Control Software on you IDE and find the clone the repo https://github.com/tsabin2023/CNE370FinalProject
 this will differ depending on what IDE you have installed.
 
-Option 2. Is to try and clone from the IDE terminal, this may vary depending on the IDE, but try
-
+Option 2. If you don't have Git installed, install Git for your host OS. Once installed, clone from the IDE terminal with the following command
 ```
 git clone https://github.com/tsabin2023/CNE370FinalProject
-```
-Press enter
-
-if you have issues make sure Git is installed on your machine
-
-```
-sudo apt-get install git
 ```
 
 Option 3. Create a new file (you may have to create a new project first) in your IDE and name it CNE370Final.py
 Then copy and paste the contents of CNE370Final.py from the repo https://github.com/tsabin2023/CNE370FinalProject
-and paste the contents into the python file you just made.
+and paste the contents into the python file you just made
 
-In your IDE configure your Python Interpreter to be 3.11, how to do this will vary based on the IDE.
-Also, in your IDE's virtual enviroment for the python file, install package mysql-connector. How to do this will vary based on IDE and you may need to install additional packages like PyMySQL, mysql-connector-python-rf, etc. 
+In your IDE configure your Python Interpreter to be 3.11, how to do this will vary based on the IDE
+Also, in your IDE's virtual enviroment for the python file, install the package mysql-connector. How to do this will vary based on IDE
 
-Step 4. In the python file CNE370Final.py look for the line with the # replace '10.0.0.28'  with your server's ip address, eg. 'ipaddress' and put in the ipadress from the server that you wrote down.
+In the python file CNE370Final.py look for the line with the # replace '10.0.0.28'  with your server's ip address, eg. 'ipaddress' and put in the ipadress from the server that you wrote down
 
-Run the python file, how this is done may vary depending on the IDE you are using. 
+Run the python file, how this is done may vary depending on the IDE you are using
 
-You will see the output in the terminal and it will look like this. 
-
+You will see the output in the terminal and it will look like this
 ```
 *******************************************
 * 1. The largest zipcode in zipcodes_one: *
@@ -3110,12 +3076,6 @@ You will see the output in the terminal and it will look like this.
 ('83559
 ```
 
-Once complete, to remove the cluster and maxscale containers:
-
-```
-docker-compose down -v
-```
-
 ## Documentation
 
 ### Sources
@@ -3140,3 +3100,4 @@ https://rtc.instructure.com/courses/2471314/files/244931517?module_item_id=82584
 https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
 https://hub.docker.com/_/mariadb
 
+[⬆️Back to Table of Contents]()
