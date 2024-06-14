@@ -1,5 +1,6 @@
 Introduction (What does this do?)
 
+I would add a little more to the introduction saying what the repo does in layman's terms. It doesn't have to be much, 2-3 sentences explaining what you've set up. It also looks like you've left part of the rubric in there which could be removed.
 
 
 Follows good documentation principles: Headers, Sections, Links, Code blocks, etc. (2 Points)
@@ -14,6 +15,9 @@ branches)
 
 - Zak Rubin
   - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
+    
+ 
+  Unless I'm mistaken (and I very well might be) installing docker, docker-compose, and mariaDB is necessary before you can run the repo. I'm pretty sure getting these up and running is going to fill part of your Configuration section and that most of the stuff in step 2 of your Configuration should be in the Docker-Compose Setup section.
 
 ## Running
 note the following assumptions are made, you have a machine with a python 3 IDE installed, you know how to pick your IDE python 3 interpreter and install packages in its enviroment, and you have a server with Ubuntu 22.04, know how to access its terminal, and already have Docker and Docker-Compose and installed. https://docs.docker.com/engine/install/ubuntu/
@@ -33,6 +37,8 @@ if you have issues make sure Git is installed on your machine
 sudo apt-get install git
 ```
 Press enter
+
+Unless I'm mistaken (and I very well might be) installing docker, docker-compose, and mariaDB is necessary before you can run the repo. I'm pretty sure getting these up and running is going to fill part of your Configuration section and that most of the stuff in step 2 of your Configuration should be in the Docker-Compose Setup section.
 
 ## Configuration
 
