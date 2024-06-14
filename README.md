@@ -64,11 +64,30 @@ This also meant I had to change the depends_on to the same names as the services
             - "8989:8989"  # REST API port
 ```
 
-Changes to the example.cnf in the sub-folder maxscale.cnf.d which is in the maxscale folder also occured.
+There needed to be changes to the example.cnf in the sub-folder maxscale.cnf.d which is in the maxscale folder also occured.
+Names of master was changed to primary1 and slave1 to primary 2, slave2 was no longer need, so I removed it. 
+Next and very crucial step was to create the shard architectue by adding a Sharded Service and a Sharded Service Listener and set that to port 4000 to proxy queries to the sharded databases, see code below. 
 
 
+```
+[Sharded-Service]
+type=service
+router=schemarouter
+servers=server1,server2
+user=maxuser
+password=maxpwd
 
-Furthermore, I added a python file in the projects folder for testing the shard architecture, see testing section of this read me. 
+[Sharded-Service-Listener]
+type=listener
+service=Sharded-Service
+protocol=MariaDBClient
+port=4000
+```
+After that, I got rid of server 3 on the MariaDB-Monitor, as it was no-longer needed.
+This process was repreated for the Read-Only-Service and Read-Write-Service.
+No other changes to this file were required.
+
+Furthermore, I added a python file in the projects folder for testing the shard architecture using sql queries, see testing section of this read me. 
 
 Step 2.
 
