@@ -1,16 +1,16 @@
 ## Table of Contents
 
-[Introduction](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#introduction)
+[Introduction](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#introduction)
 
-[Running](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#running)
+[Running](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#running)
 
-[Maxscale Docker-Compose Setup](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#maxscale-docker-compose-setup)
+[Maxscale Docker-Compose Setup](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#maxscale-docker-compose-setup)
 
-[Configuration](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#configuration)
+[Configuration](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#configuration)
 
-[Testing Sharded Database Configuration with Python Script](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#testing-sharded-database-configuration-with-python-script)
+[Testing Sharded Database Configuration with Python Script](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#testing-sharded-database-configuration-with-python-script)
 
-[Documentation](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#documentation)
+[Documentation](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#documentation)
 
 ## Introduction
 
@@ -3100,4 +3100,4 @@ https://rtc.instructure.com/courses/2471314/files/244931517?module_item_id=82584
 https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
 https://hub.docker.com/_/mariadb
 
-[⬆️Back to Table of Contents](https://github.com/tsabin2023/CNE370FinalProject/blob/master/README.md#table-of-contents)
+[⬆️Back to Table of Contents](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#table-of-contents)
