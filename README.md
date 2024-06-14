@@ -20,7 +20,7 @@ branches)
   Unless I'm mistaken (and I very well might be) installing docker, docker-compose, and mariaDB is necessary before you can run the repo. I'm pretty sure getting these up and running is going to fill part of your Configuration section and that most of the stuff in step 2 of your Configuration should be in the Docker-Compose Setup section.
 
 ## Running
-note the following assumptions are made, you have a machine with a python 3 IDE installed, you know how to pick your IDE python 3 interpreter and install packages in its enviroment, and you have a server with Ubuntu 22.04, know how to access its terminal, and already have Docker and Docker-Compose and installed. https://docs.docker.com/engine/install/ubuntu/
+note the following assumptions are made, have you have a machine with a python 3 IDE installed, you know how to pick your IDE python 3 interpreter and install packages in its enviroment, and you have a server with Ubuntu 22.04, know how to access its terminal, and already have Docker and Docker-Compose and installed. https://docs.docker.com/engine/install/ubuntu/
 https://docs.docker.com/compose/install/
 https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
 https://hub.docker.com/_/mariadb
@@ -53,6 +53,46 @@ docker-compose build
 docker-compose up -d
 ```
 Unless I'm mistaken (and I very well might be) installing docker, docker-compose, and mariaDB is necessary before you can run the repo. I'm pretty sure getting these up and running is going to fill part of your Configuration section and that most of the stuff in step 2 of your Configuration should be in the Docker-Compose Setup section.
+
+After MaxScale and the servers have started (takes a few minutes), you can find the readwritesplit router on port 4006 and the readconnroute on port 4008. The user maxuser with the password maxpwd can be used to for testing.
+
+```
+mariadb -umaxuser -pmaxpwd -h 127.0.0.1 -P 4000
+```
+Below is an example of the output of the command. 
+
+```
+vboxuser@UbuntuW4CNE370:~/test1/CNE370FinalProject$ mariadb -umaxuser -pmaxpwd -h 127.0.0.1 -P 4000
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+
+Your MariaDB connection id is 164
+
+Server version: 10.3.39-MariaDB-1:10.3.39+maria~ubu2004-log mariadb.org binary distribution
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]> 
+```
+
+If you do not want to do the Initial Testing sub-section below, tpye. 
+```
+exit
+```
+and press enter if you are not automatically exited.
+
+
+### Initial Testing
+
+Now that the sharded database is up and running, you can run sql queries.
+Note, read the sql shard1.sql and shard2.sql to see table and column names for quieries and know how to write sql queries for this sub-section.
+
+After you are done testing queries, you can exit the sharded database by typing
+```
+exit
+```
+and press enter if you are not automatically exited.
+
 
 ## Configuration
 
@@ -142,8 +182,6 @@ caec9b432531   mariadb:10.3              "docker-entrypoint.s…"   11 minutes a
 ```
 
 
-
-
 ## Maxscale Docker-Compose Setup
 
 Run maxctrl in the container to see the status of the cluster:
@@ -153,7 +191,7 @@ $ docker-compose exec maxscale maxctrl list servers
 ```
 
 
-## Testing
+## Sharded Database Testing with queries
 
 Step 3.
 
