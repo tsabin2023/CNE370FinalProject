@@ -3075,6 +3075,8 @@ You will see the output in the terminal and it will look like this
 ('',)
 ('83559
 ```
+If you want to see the full terminal output, click on the link below.
+[View terminal.txt](https://github.com/tsabin2023/CNE370FinalProject/blob/master/terminal.txt)
 
 ## Documentation
 
