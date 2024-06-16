@@ -15,27 +15,27 @@
 ## Introduction
 
 This project was forked from Zak Rubin's Maxscale Docker Project [Zohan MaxScale Docker Project](https://github.com/Zohan/maxscale-docker) and originally was set up with
-	- master slave setup, 4 containers
-   	- non sharded
-I have alterered it to use 
+ - master slave setup, 4 containers
+ - non sharded
+ - I have alterered it to use 
  - 3 containers, sharded with 2 sharded databases with data.
  - In addition I added a python script to demo query execution of sharded architecture
 
 ## Running
 Prereqs:
 
-on the host machine:
+On the host machine:
 - Python 3 IDE
 	- packages: mysql-connector
  
-on the server machine:
+On the server machine:
 - Ubuntu 22.04 server
 - [Docker](https://docs.docker.com/engine/install/ubuntu/), [Docker-Compose](https://docs.docker.com/compose/install/)
 
 ## Maxscale Docker-Compose Setup
 **The following steps will be performed on the server**
 
-If you don't have git, install git through the following command otherwise move onto the next step
+If you do not have Git, install git through the following command otherwise move onto the next step
 ```
 sudo apt-get install git
 ```
@@ -112,21 +112,15 @@ docker-compose down -v
 ```
 
 ## Configuration
-origional vs. current
 
-The original file that this project is forked from, contains MaxScale configured with a three node master-slave cluster. It has now been modified to use a proxy with sharded configuration between two databases.
-
-how I modified the file configuration
-
-Hi level view with some key code. What you canged and why
+The original file that this project is forked from, contains MaxScale configured with a three node master-slave cluster. It has now been modified to use a proxy with sharded configuration between two databases
 
 The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture.
 
-(NOTES - configuring volumes of database container - persist data)
 Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2. This meant the databases have persistent data because I configured volumes of database container
 
 Next I went into the docker-compose.yml in the maxscale folder and modified its contents to follow a sharded architucture. 
-This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 I had already put in the folders
+This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 that I had already put in their respective folders
 
 This also meant I had to change the depends_on to the same names as the services have and setting ip a shard listener on port 4000, that way I have a proxy to run quearies through without querying the databases directly. Note shard archture needs a listening port for the proxy and the default port is 4000. 
 
@@ -145,9 +139,9 @@ This also meant I had to change the depends_on to the same names as the services
             - "8989:8989"  # REST API port
 ```
 
-There needed to be changes to the example.cnf in the sub-folder maxscale.cnf.d which is in the maxscale folder also occured.
+There needed to be changes to the example.cnf in the sub-folder maxscale.cnf.d which is in the maxscale folder
 Names of master was changed to primary1 and slave1 to primary 2, slave2 was no longer need, so I removed it.
-Next and very crucial step was to create the shard architectue by adding a Sharded Service and a Sharded Service Listener and set that to port 4000 to proxy queries to the sharded databases, see code below 
+The next step was to create the shard architectue by adding a Sharded Service and a Sharded Service Listener and set that to port 4000 to proxy queries to the sharded databases, see code below 
 
 ```
 [Sharded-Service]
@@ -165,7 +159,7 @@ port=4000
 ```
 
 After that, I got rid of server 3 on the MariaDB-Monitor, as it was no-longer needed.
-This process was repreated for the Read-Only-Service and Read-Write-Service.
+This process of removeing server 3 was repreated for the Read-Only-Service and Read-Write-Service.
 No other changes to this file were required.
 
 Furthermore, I added a python file in the projects folder for testing the shard architecture using sql queries. 
@@ -189,7 +183,7 @@ To run the python file open your IDE that runs Python 3, this will vary from use
 Option 1 Use the Version Control Software on you IDE and find the clone the repo https://github.com/tsabin2023/CNE370FinalProject
 this will differ depending on what IDE you have installed.
 
-Option 2. If you don't have Git installed, install Git for your host OS. Once installed, clone from the IDE terminal with the following command
+Option 2. If you do not have Git installed, install Git for your host OS's IDE. Once installed, clone from the IDE terminal with the following command
 ```
 git clone https://github.com/tsabin2023/CNE370FinalProject
 ```
@@ -199,7 +193,7 @@ Then copy and paste the contents of CNE370Final.py from the repo https://github.
 and paste the contents into the python file you just made
 
 In your IDE configure your Python Interpreter to be 3.11, how to do this will vary based on the IDE
-Also, in your IDE's virtual enviroment for the python file, install the package mysql-connector. How to do this will vary based on IDE
+Also, in your IDE's virtual enviroment for the python file, install the package mysql-connector. How to do this will vary based on your IDE
 
 In the python file CNE370Final.py look for the line with the # replace '10.0.0.28'  with your server's ip address, eg. 'ipaddress' and put in the ipadress from the server that you wrote down
 
@@ -251,7 +245,7 @@ If you want to see the full terminal output, click on the link below.
 - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
 - [GitHub Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 - [https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md](https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md)
-https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
-https://hub.docker.com/_/mariadb
+- [Get Started with MariaDB Using Docker in 3 Steps](https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/)
+- [MariaDB on Docker Hub](https://hub.docker.com/_/mariadb)
 
 [⬆️Back to Table of Contents](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#table-of-contents)
