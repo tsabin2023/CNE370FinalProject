@@ -209,7 +209,7 @@ In the python file CNE370Final.py look for the line with the # replace '10.0.0.2
 
 Run the python file, how this is done may vary depending on the IDE you are using
 
-Here is the first 10 results of output in the terminal and it will look like this
+The first query and the first 15 results of query 2 is from the terminal output, and it will look like this
 ```
 *******************************************
 * 1. The largest zipcode in zipcodes_one: *
@@ -221,20 +221,11 @@ Here is the first 10 results of output in the terminal and it will look like thi
 * 2. All zipcodes where state=KY (Kentucky): *
 **********************************************
 
-(41503,)
-(42201,)
-(42202,)
-(42120,)
-(40801,)
-(42602,)
-(41601,)
-(42204,)
-(42020,)
-(42603,)
+41503 42201 42202 42120 40801 42602 41601 42204 42020 42603 42122 40402 41121 40902 42021
 ...
 ```
 
-If you want to see the full terminal output, click on the link below.
+If you want to see the full terminal output, click on the link
 [View terminal.txt](https://github.com/tsabin2023/CNE370FinalProject/blob/master/terminal.txt)
 
 ## Documentation
