@@ -14,6 +14,12 @@
 
 ## Introduction
 
+This project was forked from Zak Rubin's Maxscale Docker Project [Zohan MaxScale Docker Project](https://github.com/Zohan/maxscale-docker) and originally was set up with
+	- master slave setup, 4 containers
+   	- non sharded
+I have alterered it to use 
+ - 3 containers, sharded with 2 sharded databases with data.
+ - In addition I added a python script to demo query execution of sharded architecture
 
 ## Running
 Prereqs:
@@ -117,10 +123,10 @@ Hi level view with some key code. What you canged and why
 The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture.
 
 (NOTES - configuring volumes of database container - persist data)
-Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2 so the databases have information to query.
+Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2. This meant the databases have persistent data because I configured volumes of database container
 
 Next I went into the docker-compose.yml in the maxscale folder and modified its contents to follow a sharded architucture. 
-This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 I had already put in the folders.
+This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 I had already put in the folders
 
 This also meant I had to change the depends_on to the same names as the services have and setting ip a shard listener on port 4000, that way I have a proxy to run quearies through without querying the databases directly. Note shard archture needs a listening port for the proxy and the default port is 4000. 
 
@@ -141,7 +147,7 @@ This also meant I had to change the depends_on to the same names as the services
 
 There needed to be changes to the example.cnf in the sub-folder maxscale.cnf.d which is in the maxscale folder also occured.
 Names of master was changed to primary1 and slave1 to primary 2, slave2 was no longer need, so I removed it.
-Next and very crucial step was to create the shard architectue by adding a Sharded Service and a Sharded Service Listener and set that to port 4000 to proxy queries to the sharded databases, see code below. 
+Next and very crucial step was to create the shard architectue by adding a Sharded Service and a Sharded Service Listener and set that to port 4000 to proxy queries to the sharded databases, see code below 
 
 ```
 [Sharded-Service]
@@ -245,8 +251,6 @@ If you want to see the full terminal output, click on the link below.
 - [MaxScale Docker on GitHub](https://github.com/Zohan/maxscale-docker)
 - [GitHub Basic Writing and Formatting Syntax](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
 - [https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md](https://github.com/mariadb-corporation/maxscale-docker/blob/master/README.md)
-https://rtc.instructure.com/courses/2471314/files/244931514?module_item_id=82584603
-https://rtc.instructure.com/courses/2471314/files/244931517?module_item_id=82584604
 https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/
 https://hub.docker.com/_/mariadb
 
