@@ -1,6 +1,6 @@
 # Tyler Sabin
 # sabint@live.com
-# 6/11/2024
+# 6/15/2024
 # CNE 370 Spring Quarter 2024
 # This code queries shard architecture on a VM server and returns results to terminal
 # source Christine Sutton
@@ -24,7 +24,7 @@ def connect_to_db():
     return mysql.connector.connect(
         user='maxuser',
         password='maxpwd',
-        host='10.0.0.228',  # replace '10.0.0.28'  with your server's ip address, eg. 'ipaddress'
+        host='10.0.0.228',  # replace '10.0.0.28'  with your server's ip address, eg. '10.0.0.9'
         port='4000',
     )
 
