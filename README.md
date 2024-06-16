@@ -190,7 +190,7 @@ Write down the ip address of the server
 
 To run the python file open your IDE that runs Python 3, this will vary from user to user
 
-Option 1 Use the Version Control Software on you IDE and find the clone the repo https://github.com/tsabin2023/CNE370FinalProject
+Option 1 Use the Version Control System (VCS) on you IDE and find the clone the repo https://github.com/tsabin2023/CNE370FinalProject
 this will differ depending on what IDE you have installed.
 
 Option 2. If you do not have Git installed, install Git for your host OS's IDE. Once installed, clone from the IDE terminal with the following command
