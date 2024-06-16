@@ -223,6 +223,7 @@ Here is the first 10 results of output in the terminal and it will look like thi
 (42204,)
 (42020,)
 (42603,)
+...
 ```
 
 If you want to see the full terminal output, click on the link below.
