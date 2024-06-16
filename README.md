@@ -17,7 +17,9 @@
 This project was forked from Zak Rubin's Maxscale Docker Project [Zohan MaxScale Docker Project](https://github.com/Zohan/maxscale-docker) and originally was set up with
  - master slave setup, 4 containers
  - non sharded
- - I have alterered it to use 
+
+I have alterered it to use
+
  - 3 containers, sharded with 2 sharded databases with data.
  - In addition I added a python script to demo query execution of sharded architecture
 
