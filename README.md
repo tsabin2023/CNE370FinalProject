@@ -249,4 +249,9 @@ If you want to see the full terminal output, click on the link
 - [Get Started with MariaDB Using Docker in 3 Steps](https://mariadb.com/resources/blog/get-started-with-mariadb-using-docker-in-3-steps/)
 - [MariaDB on Docker Hub](https://hub.docker.com/_/mariadb)
 
+ ## Special Thanks
+
+ Spectial thank to Zak Rubin for letting me forl from his repo to start this project. 
+ Also to Christine Sutton Brinag Haung, and Matt Bennett for all their support and help on this project. 
+
 [⬆️Back to Table of Contents](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#table-of-contents)
