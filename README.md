@@ -36,8 +36,8 @@ Prereqs:
 
 On the host machine:
 - Python 3 IDE
-	- packages: mysql-connector
- 
+	- packages: mysql-connector, mymysql-connector-python-rf, cffi, cryptography, pip, pycparser, setuptools, wheel
+   
 On the server machine:
 - Ubuntu 22.04 server
 - [Docker](https://docs.docker.com/engine/install/ubuntu/), [Docker-Compose](https://docs.docker.com/compose/install/)
