@@ -14,7 +14,7 @@
 
 ## Introduction
 
-The goal of this project is to use sharding database architecture to split a database into smaller, more manageable pieces called shards, allowing for horizontal scaling for improved performance because no single server handles all the requests. The following technologies are used
+The goal of this project is to use sharding database architecture to split a database into smaller, more manageable pieces called shards, enabling horizontal scaling for improved performance because no single server handles all the requests. The following technologies are used:
 
  - Docker is for running applications inside containers, allowing for consistent environments across multiple stages of development and deployment
 
@@ -28,8 +28,8 @@ This project was forked from Zak Rubin's Maxscale Docker Project [Zohan MaxScale
 
 I have alterered it to use
 
- - 3 containers, sharded with 2 sharded databases with data
- - In addition I added a python script to demo query execution of sharded architecture
+ - 3 containers, sharded with 2 sharded databases with existing data
+ - In addition, I added a python script to demo query execution of sharded architecture
 
 ## Running
 Prereqs:
@@ -125,14 +125,13 @@ docker-compose down -v
 
 The original file that this project is forked from, contains MaxScale configured with a three node master-slave cluster. It has now been modified to use a proxy with sharded configuration between two databases
 
-The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture.
+The first thing I did was rename the sql sub-folders in the sql folder to primary 1 and primary 2, to represent the change in architecture
 
-Then I download the provided shard 1 and shard 2 files that were provided and shard 1 in primary 1 and shard 2 in primary 2. This meant the databases have persistent data because I configured volumes of database container
+I then downloaded the provided shard 1 and shard 2 files and moved the shard 1 and shard 2 files into primary 1 and primary 2 sub-directories within the sql directory, this configures the volumes of the database containers with existing data for the database tables which also allows us to persistent data
 
-Next I went into the docker-compose.yml in the maxscale folder and modified its contents to follow a sharded architucture. 
-This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 that I had already put in their respective folders
+Next I went into the docker-compose.yml in the maxscale folder and modified its contents to follow a sharded architucture. This meant changing the services of master and slave names to primary1 and primary2, and also in the volumes so that I could access the shards 1 and 2 that I had already put in their respective folders
 
-This also meant I had to change the depends_on to the same names as the services have and setting ip a shard listener on port 4000, that way I have a proxy to run quearies through without querying the databases directly. Note shard archture needs a listening port for the proxy and the default port is 4000. 
+Lastly, I had to change the depends_on to the same names as the services have and setting a shard listener on port 4000 as shown below, that way I have a proxy to run quearies through without querying the databases directly. Note shard architecture needs a listening port for the proxy and the default port is 4000
 
 ```
  maxscale:
@@ -150,8 +149,8 @@ This also meant I had to change the depends_on to the same names as the services
 ```
 
 There needed to be changes to the example.cnf in the sub-folder maxscale.cnf.d which is in the maxscale folder
-Names of master was changed to primary1 and slave1 to primary 2, slave2 was no longer need, so I removed it.
-The next step was to create the shard architectue by adding a Sharded Service and a Sharded Service Listener and set that to port 4000 to proxy queries to the sharded databases, see code below 
+Names of master was changed to primary1 and slave1 to primary 2, slave2 was no longer need, so I removed it
+The next step was to create the shard architectue by adding a [Sharded Service and a Sharded Service Listener](https://mariadb.com/kb/en/mariadb-maxscale-25-simple-sharding-with-two-servers/) and set that to port 4000 to proxy queries to the sharded databases as shown below
 
 ```
 [Sharded-Service]
@@ -168,11 +167,11 @@ protocol=MariaDBClient
 port=4000
 ```
 
-After that, I got rid of server 3 on the MariaDB-Monitor, as it was no-longer needed.
-This process of removeing server 3 was repreated for the Read-Only-Service and Read-Write-Service.
-No other changes to this file were required.
+After that, I got rid of server 3 on the MariaDB-Monitor, as it was no-longer needed
+This process of removing server 3 was repreated for the Read-Only-Service and Read-Write-Service
+No other changes to this file were required
 
-Furthermore, I added a python file in the projects folder for testing the shard architecture using sql queries. 
+Furthermore, I added a python file in the projects folder for testing the shard architecture using sql queries
 
 ## Testing Sharded Database Configuration with Python Script
 **The following steps will be performed on the server**
@@ -225,8 +224,7 @@ The first query and the first 15 results of query 2 is from the terminal output,
 ...
 ```
 
-If you want to see the full terminal output, click on the link
-[View terminal.txt](https://github.com/tsabin2023/CNE370FinalProject/blob/master/terminal.txt)
+[View Full Output Here](https://github.com/tsabin2023/CNE370FinalProject/blob/master/terminal.txt)
 
 ## Documentation
 
@@ -251,7 +249,8 @@ If you want to see the full terminal output, click on the link
 
  ## Special Thanks
 
- Spectial thank to Zak Rubin for letting me forl from his repo to start this project. 
- Also to Christine Sutton Brinag Haung, and Matt Bennett for all their support and help on this project. 
+ Spectial thank to Zak Rubin for letting me forl from his repo to start this project
+ 
+ Also to Christine Sutton, Brian Huang, and Matt Bennett for all their support and help on this project
 
 [⬆️Back to Table of Contents](https://github.com/tsabin2023/CNE370FinalProject?tab=readme-ov-file#table-of-contents)
